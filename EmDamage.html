@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.2.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>MHG モンスターへのダメージ【武器】</TITLE>
+<style type="text/css">
+<!--
+.hpb-cnt-tb1{
+	background-color: #333333;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb2{
+	background-color: #333333;
+	border: 0px solid #333333;
+}
+.hpb-cnt-tb-th1 {
+	background-color: #BBBBBB;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb-cell1 {
+	background-color: #FFFFFF;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb-cell2 {
+	background-color: #FFFFFF;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb-cell3 {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	color: #333333;
+	border: 0px solid #333333;
+  
+
+  margin-top : 0px;
+  margin-left : 0px;
+  margin-right : 0px;
+  margin-bottom : 0px;
+}
+-->
+</style>
+</HEAD>
+<BODY>
+<H3>モンスターへのダメージ【武器】</H3>
+プレイヤーの武器によって与えるモンスターへのダメージには、通常ダメージと属性ダメージがあります。<BR>
+通常ダメージは武器による物理的なダメージで、属性ダメージは火・水・雷・龍の属性によるダメージのことです。<BR>
+<BR>
+<HR>
+●通常ダメージ<BR>
+<BR>
+<BR>
+<B>武器倍率</B><BR>
+<BR>
+通常ダメージは武器の攻撃力が大きいほど大きくなりますが、ダメージ計算の元となる攻撃力は、<BR>
+ステータスに表示される攻撃力ではなく、武器倍率と呼ばれる値が元になります。<BR>
+武器倍率とは、攻撃力を武器の種類ごとに固有の倍率で割ったものです。<BR>
+【倍率＝大剣：4.8　片手剣/双剣：1.4　ハンマー：5.2　ランス：2.3　ボウガン：1.2】<BR>
+<BR>
+力の護符、食事効果、鬼人薬、スキルなどによる攻撃力アップは、全てこの武器倍率に一定値が加算されます。<BR>
+従って、ステータス上では武器の種類によって攻撃力アップ幅が異なります。<BR>
+<BR>
+<BR>
+<B>攻撃アクションによる威力の違い</B><BR>
+<BR>
+同じ武器でも、攻撃アクションによって威力が異なります。例えば、片手剣の回転切りは24％、ジャンプ切りは<BR>
+18％などと定められています。武器倍率にこの値を掛けたものが基本威力となります。<BR>
+<BR>
+各武器の攻撃アクションの威力　（数値は％　複数回ヒットするアクションは各々の値を列記）<BR>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_050319164824" class="hpb-cnt-tb1">
+  <TBODY>
+    <TR>
+      <TH nowrap colspan="2" class="hpb-cnt-tb-th1">攻撃アクション</TH>
+      <TH nowrap width="183" class="hpb-cnt-tb-th1">威力</TH>
+      <TH width="306" class="hpb-cnt-tb-th1">備考</TH>
+    </TR>
+    <TR>
+      <TD nowrap rowspan="4" align="center" width="114" class="hpb-cnt-tb-cell1">大剣</TD>
+      <TD width="127" class="hpb-cnt-tb-cell2">縦斬り</TD>
+      <TD nowrap align="center" width="183" class="hpb-cnt-tb-cell2">48</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">剣を構えた状態から縦斬り</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">なぎ払い</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">36</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">斬り上げ</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">46</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">武器出し攻撃</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">48</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">移動中からの縦斬り</TD>
+    </TR>
+    <TR>
+      <TD rowspan="8" align="center" width="114" class="hpb-cnt-tb-cell1">片手剣</TD>
+      <TD width="127" class="hpb-cnt-tb-cell2">前斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">14</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">横斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">12</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">前斬りからの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">剣と盾のコンボ</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">8・12</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">横斬りからの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">回転斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">24</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">ジャンプ斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">18</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">斬り上げ</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">15</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">ジャンプ切りや前転後からの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">ガード攻撃</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">14</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">ガードしながら攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">武器出し攻撃</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">18</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">移動中からの縦斬り</TD>
+    </TR>
+    <TR>
+      <TD rowspan="8" align="center" width="114" class="hpb-cnt-tb-cell1">双剣<BR>
+      （通常時）</TD>
+      <TD width="127" class="hpb-cnt-tb-cell2">斬り下ろし</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">14</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">回し斬り1</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">8・6</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">斬り下ろしからの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">回し斬り2</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">5・7・16</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">回し斬り1からの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">右回転斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">10・8・6</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">左回転斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">10・8・6</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">斬り払い</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">12・6</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">斬り上げ</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">15</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">斬り払いや前転後からの攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">武器出し攻撃</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">12・6</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">移動中からの斬り下ろし</TD>
+    </TR>
+    <TR>
+      <TD rowspan="7" align="center" width="114" class="hpb-cnt-tb-cell1">双剣<BR>
+      （鬼人化時）</TD>
+      <TD width="127" class="hpb-cnt-tb-cell2">斬り下ろし</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">18</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">回し斬り1</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">10・8</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">斬り下ろしからの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">回し斬り2</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">6・9・21</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">回し斬り1からの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">右2回転斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">13・10・8・13・10・8</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">左2回転斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">13・10・8・13・10・8</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">斬り上げ</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">20</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">前転後からの攻撃</TD>
+    </TR>
+    <TR>
+      <TD width="127" class="hpb-cnt-tb-cell1">乱舞斬り</TD>
+      <TD align="center" width="183" class="hpb-cnt-tb-cell2">28・5・5・5・5・5・5・5・5・33</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD rowspan="9" align="center" class="hpb-cnt-tb-cell1">ハンマー</TD>
+      <TD class="hpb-cnt-tb-cell2">縦振り1</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">52</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">縦振り2</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">20</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">縦振り1からの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">振り上げ</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">100</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">縦振り2や回転攻撃からの連携攻撃</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">横振り</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">15</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">回転攻撃</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">20・10・10・10・10・10・40</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">（途中から回転数によってタメ（中）または<BR>
+      振り上げに派生）</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">タメ（小）攻撃</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">45</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">タメ時間（小）の攻撃</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">タメ（中）攻撃</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">45・35</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">タメ時間（中）の攻撃</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">タメ（大）攻撃</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">20・76</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2">タメ時間（大）の攻撃</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">武器出し攻撃</TD>
+      <TD width="183" align="center" class="hpb-cnt-tb-cell2">20</TD>
+      <TD width="306" class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="6" align="center">ランス</TD>
+      <TD class="hpb-cnt-tb-cell2">中段突き</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">23・23・30</TD>
+      <TD class="hpb-cnt-tb-cell2">連続３回まで</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">上段突き</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">28・28・30</TD>
+      <TD class="hpb-cnt-tb-cell2">連続３回まで</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">突進</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">20</TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">フィニッシュ突き</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">40</TD>
+      <TD class="hpb-cnt-tb-cell2">突進後のフィニッシュ突き</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">ガード攻撃</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">20</TD>
+      <TD class="hpb-cnt-tb-cell2">ガードしながら攻撃</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">武器出し攻撃</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">28</TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<BR>
+次に、基本威力に武器の斬れ味ゲージによる倍率が加味されます。<BR>
+<BR>
+斬れ味倍率<BR>
+レベル０(赤)　　0.5倍<BR>
+レベル１(橙)　　0.75倍<BR>
+レベル２(黄)　　1.0倍<BR>
+レベル３(緑)　　1.125倍<BR>
+レベル４(青)　　1.25倍<BR>
+レベル５(白)　　1.5倍<BR>
+<BR>
+<BR>
+基本威力×斬れ味倍率に、さらに斬りかた修正値というものが加味されます。斬りかた修正値とは、<BR>
+攻撃アクションのどのモーション（斬り始めや斬り終わりなど）でヒットしたかによって、威力が多少変化すると<BR>
+いうものです。また、大剣の場合は剣のどの部分でヒットしたかによっても多少威力が変化します。<BR>
+詳細は、下の<B>斬りかた修正値について</B>を参照ください。<BR>
+<BR>
+以上の事を踏まえて計算された値が与えるべきダメージになりますが、モンスターには肉質というものが<BR>
+設定されており、受けたダメージが軽減されてしまいます。軽減率はモンスターの部位によって異なります。<BR>
+詳細は <B>モンスターの肉質について</B> を参照してください。<BR>
+<BR>
+最期に、モンスターの全体防御率が加味されます。プレイヤー同様、モンスターにも全体の防御力というものが<BR>
+あり、上位クラスのモンスターほど防御力が高いです。<BR>
+各モンスターの全体防御率については、<B>モンスターの体力について</B> を参照してください。<BR>
+<BR>
+最終的にモンスターに与えられたダメージが、基本威力の何％だったかによってヒットエフェクトが異なります。<BR>
+100％を超えた場合はいわゆるクリティカルで、血しぶきも派手になります。<BR>
+逆に、25％以下だった場合は弾かれてしまいます。<BR>
+例え、白ゲージで基本威力が1.5倍になっていても、肉質による軽減率が高いと基本威力の25％以下しか<BR>
+ダメージを与えられないということもあります。<BR>
+<BR>
+<HR>
+●属性ダメージ<BR>
+<BR>
+<BR>
+属性付きの武器で攻撃すると、通常ダメージとは別に属性ダメージが追加されます。<BR>
+<BR>
+ステータスに表示される属性は、実際の属性値を10倍して表示されています。<BR>
+したがって、実際にモンスターに与える属性ダメージは<BR>
+<BR>
+　　表示属性値÷10×肉質による属性軽減率×属性切れ味倍率×全体防御率
+<BR>
+<BR>
+となります。属性切れ味倍率は、以下のとおりです。<BR>
+<BR>
+レベル０(赤)　　0.25倍<BR>
+レベル１(橙)　　0.5倍<BR>
+レベル２(黄)　　0.75倍<BR>
+レベル３(緑)　　1.0倍<BR>
+レベル４(青)　　1.0625倍<BR>
+レベル５(白)　　1.125倍<BR>
+<BR>
+ダメージを計算する過程では実数で計算されていますが、計算結果の小数点以下は全て切り捨てられるので、<BR>
+実際にはレベル３以上はほとんど変わらないと言えるでしょう。<BR>
+<BR>
+<BR>
+<BR>
+<HR>
+●斬りかた修正値について<BR>
+<BR>
+斬りかた修正値とは、上でも述べたとおり、攻撃アクションのどのモーションでヒットしたかによって威力が<BR>
+変化するというものです。下のグラフをご覧下さい。<BR>
+<BR>
+<P><IMG src="images/kirikata.gif" width="627" height="145" border="0"></P>
+<BR>
+横軸は時間の経過を表しています。タイミング１とタイミング２が訪れる時間は、武器の種類や攻撃アクションに<BR>
+よって違いがあります。基本的には、武器の振り始めは威力が弱く、振り終わりも多少威力が弱いということです<BR>
+が、切れ味レベルが３以上なら、最初から最大威力になっています。<BR>
+（大剣の場合で剣の中腹部分でヒットした場合は、1.0倍の部分が1.05倍になります）<BR>
+<BR>
+実際には、切れ味レベル３以上で武器の振り終わり直前でなければ、威力は最大であると言えるので、<BR>
+斬りかた修正値による威力の変化は、気にしなくていいでしょう。<BR>
+<BR>
+ここで、<B>心眼</B>スキルがこの斬りかた修正値にどう影響するかについてですが、調査結果では、<BR>
+<BR>
+　　<B>武器の振り始めや終わりで威力が弱い時間帯でも、最大威力を発揮できる</B><BR>
+<BR>
+という結論になりました。しかし、ここで疑問が起こります。切れ味レベル３以上なら最初から最大威力なので、<BR>
+心眼スキルがあろうとなかろうと関係ないということになります。では、切れ味レベル２以下なら意味があるかと<BR>
+言うと、心眼スキルは切れ味レベル５以外では発動しないようになっています。<BR>
+武器の振り終わりでは多少意味がありますが、実際、振り終わりの時間帯は極わずかです。結論として、<BR>
+<BR>
+　　<B>心眼スキルはほとんど無意味なスキルである</B><BR>
+<BR>
+ということになってしまいます。<BR>
+<BR>
+*<FONT size="-1">　（以上の結論は誤りがあるかもしれませんが、当方の調査結果ではこのような結論となりました。<BR>
+　　 心眼スキルについての調査は終了とさせて頂きますので、この件についてのお問い合わせ等はご遠慮くださるようお願いします）</FONT><BR>
+<BR>
+<BR>
+2005/04/06<BR>
+2005/03/19<BR>

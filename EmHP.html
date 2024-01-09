@@ -1,0 +1,1341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.2.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>MHG モンスターの体力について</TITLE>
+<style type="text/css">
+<!--
+.hpb-cnt-tb1{
+	background-color: #333333;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb2{
+	background-color: #333333;
+	border: 0px solid #333333;
+}
+.hpb-cnt-tb-th1 {
+	background-color: #BBBBBB;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb-cell1 {
+	background-color: #EEEEEE;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  
+}
+.hpb-cnt-tb-cell2 {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb-cell3 {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	color: #333333;
+	border: 0px solid #333333;
+  
+
+  margin-top : 0px;
+  margin-left : 0px;
+  margin-right : 0px;
+  margin-bottom : 0px;
+}
+-->
+</style>
+</HEAD>
+<BODY>
+<H3>モンスターの体力について</H3>
+全てのモンスターは、体力値とともに攻撃力倍率・全体防御率が設定されています。<BR>
+この３つを組み合わせたものを１つのパターンとして、モンスター毎に１６パターンずつ用意されており、<BR>
+各クエストに設定されている１つ以上のパターン候補から、いずれかのパターンが選ばれます。<BR>
+上位クエストになるほど、大きなパターン番号が候補として設定されています。<BR>
+<FONT SIZE="-1">　（オフラインクエストがパターン01〜04、オンラインクエストは05以降のようです）</FONT><BR>
+<BR>
+攻撃力倍率とは、モンスターの各種攻撃に設定されている基本攻撃力を何倍にするかという値です。<BR>
+怒り状態になると、攻撃力倍率が1.2〜1.5倍くらい上がります。<BR>
+オフラインモードのモンスターがほとんど100％なので、これを基準に、オンラインモードの場合は<BR>
+どのくらいモンスターの攻撃力が上がっているのか見当をつけることができます。<BR>
+<BR>
+全体防御率は、モンスターが攻撃を受けた際のダメージを減衰する率なので、同じ攻撃を行っても<BR>
+値が小さいほどダメージが小さくなるということです。また、この全体防御率はダメージ計算の過程において<BR>
+攻撃の種類に関係なく最終的に必ず乗算されるので、値が小さいほど体力が大きくなるのと同等です。<BR>
+オフラインモードのモンスターがほとんど100％なので、これを基準に、オンラインモードの場合は<BR>
+同じ攻撃を行っても、どのくらいダメージがカットされるのか見当をつけることができます。
+<BR>
+<BR>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_050313153623" class="hpb-cnt-tb1">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" nowrap width="130">名　称</TH>
+      <TH class="hpb-cnt-tb-th1" nowrap width="580">パターン番号：体力/攻撃力倍率/全体防御率</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" nowrap>リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1200/100/100<BR>
+            02：1600/100/100<BR>
+            03：2000/101/100<BR>
+            04：2400/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2800/105/100<BR>
+            06：4000/120/095<BR>
+            07：4000/120/095<BR>
+            08：4400/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：4800/150/090<BR>
+            10：5200/180/080<BR>
+            11：6400/250/075<BR>
+            12：6400/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：7200/280/075<BR>
+            14：7200/290/075<BR>
+            15：7200/310/070<BR>
+            16：8000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">蒼リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1350/100/100<BR>
+            02：1800/100/100<BR>
+            03：2250/101/100<BR>
+            04：2700/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3150/105/100<BR>
+            06：4500/120/095<BR>
+            07：4500/120/095<BR>
+            08：4950/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：5400/150/090<BR>
+            10：5850/180/080<BR>
+            11：7200/250/075<BR>
+            12：7200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：8100/280/075<BR>
+            14：8100/290/075<BR>
+            15：8100/310/070<BR>
+            16：9000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">銀リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1500/100/100<BR>
+            02：2000/100/100<BR>
+            03：2500/101/100<BR>
+            04：3000/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3500/105/100<BR>
+            06：5000/120/095<BR>
+            07：5000/120/095<BR>
+            08：5500/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6000/150/090<BR>
+            10：6500/180/080<BR>
+            11：8000/250/075<BR>
+            12：8000/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9000/280/075<BR>
+            14：9000/290/075<BR>
+            15：9000/310/070<BR>
+            16：10000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" nowrap>リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1500/100/100<BR>
+            02：2000/100/100<BR>
+            03：2500/101/100<BR>
+            04：3000/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3500/105/100<BR>
+            06：5000/120/095<BR>
+            07：5000/120/095<BR>
+            08：5500/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6000/150/090<BR>
+            10：6500/180/080<BR>
+            11：8000/250/075<BR>
+            12：8000/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9000/280/075<BR>
+            14：9000/290/075<BR>
+            15：9000/310/070<BR>
+            16：10000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">桜リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1650/100/100<BR>
+            02：2200/100/100<BR>
+            03：2750/101/100<BR>
+            04：3300/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3850/105/100<BR>
+            06：5500/120/095<BR>
+            07：5500/120/095<BR>
+            08：6050/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6600/150/090<BR>
+            10：7150/180/080<BR>
+            11：8800/250/075<BR>
+            12：8800/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9900/280/075<BR>
+            14：9900/290/075<BR>
+            15：9900/310/070<BR>
+            16：11000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">金リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：2100/100/100<BR>
+            02：2800/100/100<BR>
+            03：3500/101/100<BR>
+            04：4200/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：4900/105/100<BR>
+            06：7000/120/095<BR>
+            07：7000/120/095<BR>
+            08：7700/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：8400/150/090<BR>
+            10：9100/180/080<BR>
+            11：11200/250/075<BR>
+            12：11200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：12600/280/075<BR>
+            14：12600/290/075<BR>
+            15：12600/310/070<BR>
+            16：14000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：600/100/100<BR>
+            02：800/100/100<BR>
+            03：1000/101/100<BR>
+            04：1200/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：1400/105/100<BR>
+            06：2000/120/095<BR>
+            07：2000/120/095<BR>
+            08：2200/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：2400/150/090<BR>
+            10：2600/180/080<BR>
+            11：3200/250/075<BR>
+            12：3200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：3600/280/075<BR>
+            14：3600/290/075<BR>
+            15：3600/310/070<BR>
+            16：4000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">青イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1050/100/100<BR>
+            02：1400/100/100<BR>
+            03：1750/101/100<BR>
+            04：2100/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2450/105/100<BR>
+            06：3500/120/095<BR>
+            07：3500/120/095<BR>
+            08：3850/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：4200/150/090<BR>
+            10：4550/180/080<BR>
+            11：5600/250/075<BR>
+            12：5600/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：6300/280/075<BR>
+            14：6300/290/075<BR>
+            15：6300/310/070<BR>
+            16：7000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：900/100/100<BR>
+            02：1200/100/100<BR>
+            03：1500/101/100<BR>
+            04：1800/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2100/105/100<BR>
+            06：3000/120/095<BR>
+            07：3000/120/095<BR>
+            08：3300/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：3600/150/090<BR>
+            10：3900/180/080<BR>
+            11：4800/250/075<BR>
+            12：4800/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：5400/280/075<BR>
+            14：5400/290/075<BR>
+            15：5400/310/070<BR>
+            16：6000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">紫ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1050/100/100<BR>
+            02：1400/100/100<BR>
+            03：1750/101/100<BR>
+            04：2100/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2450/105/100<BR>
+            06：3500/120/095<BR>
+            07：3500/120/095<BR>
+            08：3850/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：4200/150/090<BR>
+            10：4550/180/080<BR>
+            11：5600/250/075<BR>
+            12：5600/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：6300/280/075<BR>
+            14：6300/290/075<BR>
+            15：6300/310/070<BR>
+            16：7000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1200/100/100<BR>
+            02：1600/100/100<BR>
+            03：2000/101/100<BR>
+            04：2400/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2800/105/100<BR>
+            06：4000/120/095<BR>
+            07：4000/120/095<BR>
+            08：4400/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：4800/150/090<BR>
+            10：5200/180/080<BR>
+            11：6400/250/075<BR>
+            12：6400/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：7200/280/075<BR>
+            14：7200/290/075<BR>
+            15：7200/310/070<BR>
+            16：8000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">赤フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1350/100/100<BR>
+            02：1800/100/100<BR>
+            03：2250/101/100<BR>
+            04：2700/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3150/105/100<BR>
+            06：4500/120/095<BR>
+            07：4500/120/095<BR>
+            08：4950/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：5400/150/090<BR>
+            10：5850/180/080<BR>
+            11：7200/250/075<BR>
+            12：7200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：8100/280/075<BR>
+            14：8100/290/075<BR>
+            15：8100/310/070<BR>
+            16：9000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1500/100/100<BR>
+            02：2000/100/100<BR>
+            03：2500/101/100<BR>
+            04：3000/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3500/105/100<BR>
+            06：5000/120/095<BR>
+            07：5000/120/095<BR>
+            08：5500/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6000/150/090<BR>
+            10：6500/180/080<BR>
+            11：8000/250/075<BR>
+            12：8000/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9000/280/075<BR>
+            14：9000/290/075<BR>
+            15：9000/310/070<BR>
+            16：10000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">翠ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1650/100/100<BR>
+            02：2200/100/100<BR>
+            03：2750/101/100<BR>
+            04：3300/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3850/105/100<BR>
+            06：5500/120/095<BR>
+            07：5500/120/095<BR>
+            08：6050/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6600/150/090<BR>
+            10：7150/180/080<BR>
+            11：8800/250/075<BR>
+            12：8800/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9900/280/075<BR>
+            14：9900/290/075<BR>
+            15：9900/310/070<BR>
+            16：11000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスガレオス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：600/100/100<BR>
+            02：800/100/100<BR>
+            03：1000/101/100<BR>
+            04：1200/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：1400/105/100<BR>
+            06：2000/120/095<BR>
+            07：2000/120/095<BR>
+            08：2200/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：2400/150/090<BR>
+            10：2600/180/080<BR>
+            11：3200/250/075<BR>
+            12：3200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：3600/280/075<BR>
+            14：3600/290/075<BR>
+            15：3600/310/070<BR>
+            16：4000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1800/100/100<BR>
+            02：2400/100/100<BR>
+            03：3000/101/100<BR>
+            04：3600/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：4200/105/100<BR>
+            06：6000/120/095<BR>
+            07：6000/120/095<BR>
+            08：6600/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：7200/150/090<BR>
+            10：7800/180/080<BR>
+            11：9600/250/075<BR>
+            12：9600/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：10800/280/075<BR>
+            14：10800/290/075<BR>
+            15：10800/310/070<BR>
+            16：12000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">白モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：2250/100/100<BR>
+            02：3000/100/100<BR>
+            03：3750/101/100<BR>
+            04：4500/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：5250/105/100<BR>
+            06：7500/120/095<BR>
+            07：7500/120/095<BR>
+            08：8250/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：9000/150/090<BR>
+            10：9750/180/080<BR>
+            11：12000/250/075<BR>
+            12：12000/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：13500/280/075<BR>
+            14：13500/290/075<BR>
+            15：13500/310/070<BR>
+            16：15000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：2100/100/100<BR>
+            02：2800/100/100<BR>
+            03：3500/101/100<BR>
+            04：4200/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：4900/105/100<BR>
+            06：7000/120/095<BR>
+            07：7000/120/095<BR>
+            08：7700/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：8400/150/090<BR>
+            10：9100/180/080<BR>
+            11：11200/250/075<BR>
+            12：11200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：12600/280/075<BR>
+            14：12600/290/075<BR>
+            15：12600/310/070<BR>
+            16：14000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：2250/100/100<BR>
+            02：3000/100/100<BR>
+            03：3750/101/100<BR>
+            04：4500/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：5250/105/100<BR>
+            06：7500/120/095<BR>
+            07：7500/120/095<BR>
+            08：8250/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：9000/150/090<BR>
+            10：9750/180/080<BR>
+            11：12000/250/075<BR>
+            12：12000/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：13500/280/075<BR>
+            14：13500/290/075<BR>
+            15：13500/310/070<BR>
+            16：15000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1500/100/100<BR>
+            02：2000/100/100<BR>
+            03：2500/101/100<BR>
+            04：3000/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3500/105/100<BR>
+            06：5000/120/095<BR>
+            07：5000/120/095<BR>
+            08：5500/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6000/150/090<BR>
+            10：6500/180/080<BR>
+            11：8000/250/075<BR>
+            12：8000/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9000/280/075<BR>
+            14：9000/290/075<BR>
+            15：9000/310/070<BR>
+            16：10000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1650/100/100<BR>
+            02：2200/100/100<BR>
+            03：2750/101/100<BR>
+            04：3300/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：3850/105/100<BR>
+            06：5500/120/095<BR>
+            07：5500/120/095<BR>
+            08：6050/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：6600/150/090<BR>
+            10：7150/180/080<BR>
+            11：8800/250/075<BR>
+            12：8800/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：9900/280/075<BR>
+            14：9900/290/075<BR>
+            15：9900/310/070<BR>
+            16：11000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">バサルモス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：900/100/100<BR>
+            02：1200/100/100<BR>
+            03：1500/101/100<BR>
+            04：1800/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2100/105/100<BR>
+            06：3000/120/095<BR>
+            07：3000/120/095<BR>
+            08：3300/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：3600/150/090<BR>
+            10：3900/180/080<BR>
+            11：4800/250/075<BR>
+            12：4800/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：5400/280/075<BR>
+            14：5400/290/075<BR>
+            15：5400/310/070<BR>
+            16：6000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ラオシャンロン<BR>
+      蒼ラオシャンロン</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：7999/100/100<BR>
+            02：10666/100/100<BR>
+            03：13333/101/100<BR>
+            04：15999/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：18666/105/100<BR>
+            06：26666/120/095<BR>
+            07：26666/120/095<BR>
+            08：26666/150/090</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：26666/220/075<BR>
+            10：31999/280/065<BR>
+            11：26666/280/070<BR>
+            12：26666/280/070</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：26666/280/070<BR>
+            14：26666/280/070<BR>
+            15：26666/280/070<BR>
+            16：26666/280/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ミラボレアス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">32000/260/085 （通常状態）<BR>
+      * ミラボレアスのみ初期体力は固定です<BR>
+      体力が20800以下になると、常時怒り状態となり、<BR>
+      攻撃力倍率：364　防御力倍率：063 になります</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">キリン</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：1200/100/100<BR>
+            02：1600/100/100<BR>
+            03：2000/101/100<BR>
+            04：2400/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：2800/105/100<BR>
+            06：4000/120/095<BR>
+            07：4000/120/095<BR>
+            08：4400/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：4800/150/090<BR>
+            10：5200/180/080<BR>
+            11：6400/250/075<BR>
+            12：6400/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：7200/280/075<BR>
+            14：7200/290/075<BR>
+            15：7200/310/070<BR>
+            16：8000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ガレオス</TD>
+      <TD class="hpb-cnt-tb-cell2" align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：150/100/100<BR>
+            02：240/100/100<BR>
+            03：240/101/100<BR>
+            04：240/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：240/103/100<BR>
+            06：300/105/100<BR>
+            07：300/105/100<BR>
+            08：300/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：330/110/095<BR>
+            10：360/120/090<BR>
+            11：360/120/090<BR>
+            12：390/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：420/160/080<BR>
+            14：450/170/075<BR>
+            15：600/200/070<BR>
+            16：600/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスランポス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：300/100/100<BR>
+            02：400/100/100<BR>
+            03：500/101/100<BR>
+            04：600/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：700/105/100<BR>
+            06：1000/120/095<BR>
+            07：1000/120/095<BR>
+            08：1100/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：1200/150/090<BR>
+            10：1300/180/080<BR>
+            11：1600/250/075<BR>
+            12：1600/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：1800/280/075<BR>
+            14：1800/290/075<BR>
+            15：1800/310/070<BR>
+            16：2000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ランポス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：35/100/100<BR>
+            02：56/100/100<BR>
+            03：56/101/100<BR>
+            04：56/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：56/103/100<BR>
+            06：70/105/100<BR>
+            07：70/105/100<BR>
+            08：70/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：77/110/095<BR>
+            10：84/120/090<BR>
+            11：84/120/090<BR>
+            12：91/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：98/160/080<BR>
+            14：105/170/075<BR>
+            15：140/200/070<BR>
+            16：140/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">白ランポス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：50/100/100<BR>
+            02：80/100/100<BR>
+            03：80/101/100<BR>
+            04：80/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：80/103/100<BR>
+            06：100/105/100<BR>
+            07：100/105/100<BR>
+            08：100/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：110/110/095<BR>
+            10：120/120/090<BR>
+            11：120/120/090<BR>
+            12：130/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：140/160/080<BR>
+            14：150/170/075<BR>
+            15：200/200/070<BR>
+            16：200/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスゲネポス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：450/100/100<BR>
+            02：600/100/100<BR>
+            03：750/101/100<BR>
+            04：900/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：1050/105/100<BR>
+            06：1500/120/095<BR>
+            07：1500/120/095<BR>
+            08：1650/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：1800/150/090<BR>
+            10：1950/180/080<BR>
+            11：2400/250/075<BR>
+            12：2400/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：2700/280/075<BR>
+            14：2700/290/075<BR>
+            15：2700/310/070<BR>
+            16：3000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ゲネポス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：50/100/100<BR>
+            02：80/100/100<BR>
+            03：80/101/100<BR>
+            04：80/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：80/103/100<BR>
+            06：100/105/100<BR>
+            07：100/105/100<BR>
+            08：100/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：110/110/095<BR>
+            10：120/120/090<BR>
+            11：120/120/090<BR>
+            12：130/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：140/160/080<BR>
+            14：150/170/075<BR>
+            15：200/200/070<BR>
+            16：200/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスイーオス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：600/100/100<BR>
+            02：800/100/100<BR>
+            03：1000/101/100<BR>
+            04：1200/103/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：1400/105/100<BR>
+            06：2000/120/095<BR>
+            07：2000/120/095<BR>
+            08：2200/130/095</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：2400/150/090<BR>
+            10：2600/180/080<BR>
+            11：3200/250/075<BR>
+            12：3200/260/075</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：3600/280/075<BR>
+            14：3600/290/075<BR>
+            15：3600/310/070<BR>
+            16：4000/400/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">イーオス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：75/100/100<BR>
+            02：120/100/100<BR>
+            03：120/101/100<BR>
+            04：120/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：120/103/100<BR>
+            06：150/105/100<BR>
+            07：150/105/100<BR>
+            08：150/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：165/110/095<BR>
+            10：180/120/090<BR>
+            11：180/120/090<BR>
+            12：195/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：210/160/080<BR>
+            14：225/170/075<BR>
+            15：300/200/070<BR>
+            16：300/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ランゴスタ（小）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：20/100/100<BR>
+            02：32/100/100<BR>
+            03：32/101/100<BR>
+            04：32/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：32/103/100<BR>
+            06：40/105/100<BR>
+            07：40/105/100<BR>
+            08：40/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：44/110/095<BR>
+            10：48/120/090<BR>
+            11：48/120/090<BR>
+            12：52/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：56/160/080<BR>
+            14：60/170/075<BR>
+            15：80/200/070<BR>
+            16：80/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ランゴスタ（大）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：40/100/100<BR>
+            02：64/100/100<BR>
+            03：64/101/100<BR>
+            04：64/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：64/103/100<BR>
+            06：80/105/100<BR>
+            07：80/105/100<BR>
+            08：80/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：88/110/095<BR>
+            10：96/120/090<BR>
+            11：96/120/090<BR>
+            12：104/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：112/160/080<BR>
+            14：120/170/075<BR>
+            15：160/200/070<BR>
+            16：160/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">カンタロス（小）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：25/100/100<BR>
+            02：40/100/100<BR>
+            03：40/101/100<BR>
+            04：40/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：40/103/100<BR>
+            06：50/105/100<BR>
+            07：50/105/100<BR>
+            08：50/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：55/110/095<BR>
+            10：60/120/090<BR>
+            11：60/120/090<BR>
+            12：65/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：70/160/080<BR>
+            14：75/170/075<BR>
+            15：100/200/070<BR>
+            16：100/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">カンタロス（大）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：50/100/100<BR>
+            02：80/100/100<BR>
+            03：80/101/100<BR>
+            04：80/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：80/103/100<BR>
+            06：100/105/100<BR>
+            07：100/105/100<BR>
+            08：100/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：110/110/095<BR>
+            10：120/120/090<BR>
+            11：120/120/090<BR>
+            12：130/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：140/160/080<BR>
+            14：150/170/075<BR>
+            15：200/200/070<BR>
+            16：200/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">アプトノス（小）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：40/100/100<BR>
+            02：64/100/100<BR>
+            03：64/101/100<BR>
+            04：64/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：64/103/100<BR>
+            06：80/105/100<BR>
+            07：80/105/100<BR>
+            08：80/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：88/110/095<BR>
+            10：96/120/090<BR>
+            11：96/120/090<BR>
+            12：104/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：104/160/080<BR>
+            14：120/170/075<BR>
+            15：160/200/070<BR>
+            16：160/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">アプトノス（大）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：55/100/100<BR>
+            02：88/100/100<BR>
+            03：88/101/100<BR>
+            04：88/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：88/103/100<BR>
+            06：110/105/100<BR>
+            07：110/105/100<BR>
+            08：110/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：121/110/095<BR>
+            10：132/120/090<BR>
+            11：132/120/090<BR>
+            12：143/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：154/160/080<BR>
+            14：165/170/075<BR>
+            15：220/200/070<BR>
+            16：220/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">アプケロス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：100/100/100<BR>
+            02：160/100/100<BR>
+            03：160/101/100<BR>
+            04：160/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：160/103/100<BR>
+            06：200/105/100<BR>
+            07：200/105/100<BR>
+            08：200/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：220/110/095<BR>
+            10：240/120/090<BR>
+            11：240/120/090<BR>
+            12：260/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：280/160/080<BR>
+            14：300/170/075<BR>
+            15：400/200/070<BR>
+            16：400/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">モス</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：25/100/100<BR>
+            02：40/100/100<BR>
+            03：40/101/100<BR>
+            04：40/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：40/103/100<BR>
+            06：50/105/100<BR>
+            07：50/105/100<BR>
+            08：50/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：55/110/095<BR>
+            10：60/120/090<BR>
+            11：60/120/090<BR>
+            12：65/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：70/160/080<BR>
+            14：75/170/075<BR>
+            15：100/200/070<BR>
+            16：100/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ブルファンゴ（小）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：100/100/100<BR>
+            02：160/100/100<BR>
+            03：160/101/100<BR>
+            04：160/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：160/103/100<BR>
+            06：200/105/100<BR>
+            07：200/105/100<BR>
+            08：200/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：220/110/095<BR>
+            10：240/120/090<BR>
+            11：240/120/090<BR>
+            12：260/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：280/160/080<BR>
+            14：300/170/075<BR>
+            15：400/200/070<BR>
+            16：400/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ブルファンゴ（大）</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：150/100/100<BR>
+            02：240/100/100<BR>
+            03：240/101/100<BR>
+            04：240/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：240/103/100<BR>
+            06：300/105/100<BR>
+            07：300/105/100<BR>
+            08：300/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：330/110/095<BR>
+            10：360/120/090<BR>
+            11：360/120/090<BR>
+            12：390/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：420/160/080<BR>
+            14：450/170/075<BR>
+            15：600/200/070<BR>
+            16：600/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ケルビ</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：30/100/100<BR>
+            02：48/100/100<BR>
+            03：48/101/100<BR>
+            04：48/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：48/103/100<BR>
+            06：60/105/100<BR>
+            07：60/105/100<BR>
+            08：60/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：66/110/095<BR>
+            10：72/120/090<BR>
+            11：72/120/090<BR>
+            12：78/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：84/160/080<BR>
+            14：90/170/075<BR>
+            15：120/200/070<BR>
+            16：120/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">アイルー</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center">
+      <TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2">
+        <TBODY>
+          <TR>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">01：20/100/100<BR>
+            02：32/100/100<BR>
+            03：32/101/100<BR>
+            04：32/102/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">05：32/103/100<BR>
+            06：40/105/100<BR>
+            07：40/105/100<BR>
+            08：40/110/100</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">09：44/110/095<BR>
+            10：48/120/090<BR>
+            11：48/120/090<BR>
+            12：52/140/080</TD>
+            <TD class="hpb-cnt-tb-cell3" nowrap width="130">13：56/160/080<BR>
+            14：60/170/075<BR>
+            15：80/200/070<BR>
+            16：80/350/070</TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      </TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">メラルー</TD>
+      <TD class="hpb-cnt-tb-cell2" nowrap align="center"><TABLE cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_B_050313153956" class="hpb-cnt-tb2"><TBODY><TR><TD class="hpb-cnt-tb-cell3" nowrap width="130">01：25/100/100<BR>
+            02：40/100/100<BR>
+            03：40/101/100<BR>
+            04：40/102/100</TD><TD class="hpb-cnt-tb-cell3" nowrap width="130">05：40/103/100<BR>
+            06：50/105/100<BR>
+            07：50/105/100<BR>
+            08：50/110/100</TD><TD class="hpb-cnt-tb-cell3" nowrap width="130">09：55/110/095<BR>
+            10：60/120/090<BR>
+            11：60/120/090<BR>
+            12：65/140/080</TD><TD class="hpb-cnt-tb-cell3" nowrap width="130">13：70/160/080<BR>
+            14：75/170/075<BR>
+            15：100/200/070<BR>
+            16：100/350/070</TD></TR></TBODY></TABLE></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+2005/03/13<BR>
+<BR>
+<BR>
+</BODY>
+</HTML>

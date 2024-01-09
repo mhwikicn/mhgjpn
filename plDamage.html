@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.2.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>MHG プレイヤーが受けるダメージについて</TITLE>
+<style type="text/css">
+<!--
+.hpb-cnt-tb1{
+	background-color: #333333;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb2{
+	background-color: #333333;
+	border: 0px solid #333333;
+}
+.hpb-cnt-tb-th1 {
+	background-color: #BBBBBB;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  font-size : 80%;
+}
+.hpb-cnt-tb-cell1 {
+	background-color : #EEEEEE;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  font-size : 80%;
+}.hpb-cnt-tb-cell0{
+	background-color: #FFFFFF;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width : 0px;
+	border-bottom-width : 0px;
+	border-left-width: 0px;
+	border-top-style : none;
+	border-right-style : none;
+	border-bottom-style : none;
+	border-left-style : none;
+  font-size : 80%;
+}
+.hpb-cnt-tb-cell2 {
+	background-color: #FFFFFF;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  font-size : 80%;
+  text-indent : 3px;
+}
+.hpb-cnt-tb-cell3 {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  text-align : center;
+}
+-->
+</style>
+<SCRIPT src="scripts/plDamage.js"></SCRIPT>
+</HEAD>
+<BODY onLoad="SetTsuyo()">
+<H3>プレイヤーが受けるダメージについて</H3>
+<P class="hpb-cnt-tb-cell0">モンスターからの攻撃を受けると、プレイヤーはモンスターの攻撃の種類によって通常ダメージか属性ダメージのどちらかを受けます。<BR>
+ダメージ計算は基本的に同じで、属性攻撃の場合はさらにプレイヤーのその属性への耐性が加味されます。<BR>
+<BR>
+モンスターには各攻撃に攻撃力と属性種類が設定されており、これにモンスターのその時の<B>攻撃力倍率</B>を掛けたものが基本になります。<BR>
+<BR>
+<BR>
+攻撃を受けた時に、まず以下の計算が行われます。</P>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD width="30" class="hpb-cnt-tb-cell0"></TD>
+      <TD class="hpb-cnt-tb-cell0" rowspan="2" width="40"><B>式１：</B></TD>
+      <TD class="hpb-cnt-tb-cell0" rowspan="2" width="216">モンスターの攻撃力×攻撃力倍率　−</TD>
+      <TD class="hpb-cnt-tb-cell0" width="314"><U>モンスターの攻撃力×攻撃力倍率×プレイヤー防御値</U></TD>
+    </TR>
+    <TR>
+      <TD width="34" class="hpb-cnt-tb-cell0"></TD>
+      <TD class="hpb-cnt-tb-cell0" align="center" width="314">プレイヤー防御値＋８０</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P class="hpb-cnt-tb-cell0">通常攻撃の場合は、この計算結果がプレイヤーが受けるダメージになります。<BR>
+属性攻撃の場合は、さらに以下の計算が行われ、式１の結果に乗算されます。</P>
+<TABLE border="0">
+  <TBODY>
+    <TR>
+      <TD width="30" class="hpb-cnt-tb-cell0"></TD>
+      <TD width="40" class="hpb-cnt-tb-cell0" rowspan="2"><B>式２：</B></TD>
+      <TD class="hpb-cnt-tb-cell0" width="176"><U>１００−プレイヤー属性耐性値</U></TD>
+      <TD class="hpb-cnt-tb-cell0" width="30"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell0"></TD>
+      <TD class="hpb-cnt-tb-cell0" width="176" align="center">１００</TD>
+      <TD class="hpb-cnt-tb-cell0" width="30"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<P class="hpb-cnt-tb-cell0">つまり、属性攻撃を受けた場合でも、プレイヤーの防御力が影響しているわけです。ですから、属性に対する耐性値も重要ですが、<BR>
+基本的な防御力も重要ということになります。<BR>
+<BR>
+この式を見てもわかり通り、耐性値は属性ダメージを何％カットしてくれるもの、と言えます。 逆に、耐性値がマイナスの場合は、<BR>
+何％増大したダメージを受けてしまう、ということになります。<BR>
+<BR>
+ちなみに、プレイヤーの体力が40％以下になると、プレイヤー防御値が＋30されるようになっています。<BR>
+<BR>
+<BR>
+下の表は、モンスターの主な攻撃の攻撃力を調査したものです。基本的に、クエストクラスによる違いはありませんが、<BR>
+上位クラスのモンスターほど攻撃力倍率が高くなるので、必然的に受けるダメージは大きくなります。<BR>
+攻撃力倍率は、<B>モンスターの体力について</B> で掲載していますが、怒り状態になるとさらに高くなります。<BR>
+　（Ｇ級クラスの飛竜になると、怒り状態では500％を超えるものもいます）</P>
+<TABLE border="0" class="hpb-cnt-tb1" cellpadding="2" cellspacing="0">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" width="130">モンスター</TH>
+      <TH class="hpb-cnt-tb-th1" width="170">攻撃</TH>
+      <TH class="hpb-cnt-tb-th1" width="60">攻撃力</TH>
+      <TH class="hpb-cnt-tb-th1" width="130">属性など</TH>
+      <TH class="hpb-cnt-tb-th1" width="100">受けるダメージ</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="7">リオレウス<BR>
+      リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">空中蹴り</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">45</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">毒 （リオレウスのみ）</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">サマーソルト尻尾</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">75</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">毒 （リオレイアのみ）</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">火球ブレス</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">65</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">火属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">回転尻尾</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">35</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">突進１</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">突進２</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">64</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">噛み付き</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">20</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="8">フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">飛びつき１</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">飛びつき２</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">65</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">回転尻尾</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">電撃ブレス</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">80</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">雷属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">体内放電</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">55</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">天上から落下</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">60</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">天上からヨダレ</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">25</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">首伸ばし噛み付き</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">55</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="6">グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">突進</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">70</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">熱線１</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">80</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">火属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">熱線２</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">100</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">火属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">体当たり</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">回転尻尾</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">45</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">噛み付き</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="6">ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">水中からの水ブレス横</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">70</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">水属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">水中からの水ブレス縦</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">65</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">水属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">地上での水ブレス</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">70</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">水属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">体当たり</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">水属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">噛み付き</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">65</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">回転尻尾</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="6">ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">突進</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">55</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">地中からの突き上げ</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">60</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">体当たり</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">回転尻尾</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">40</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">角による突き上げ</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">55</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">尻尾振り回し</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">35</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD rowspan="3" class="hpb-cnt-tb-cell1">キリン</TD>
+      <TD class="hpb-cnt-tb-cell2">落雷</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">50</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">雷属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">突進１</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">40</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">突進２</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">35</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr"></SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" rowspan="2">ミラボレアス</TD>
+      <TD class="hpb-cnt-tb-cell2">火球プレス</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">200</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">火属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell2">突進攻撃</TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="power">190</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell2"><SPAN id="attr">龍属性</SPAN></TD>
+      <TD class="hpb-cnt-tb-cell3"><SPAN id="damag"></SPAN></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+* <FONT size="-2">表は調査が終了したものから順次追加していく予定です</FONT>
+<BR>
+<BR>
+<TABLE border="1" class="hpb-cnt-tb1" cellpadding="2" cellspacing="0">
+  <TBODY>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="579">
+      <FORM name="stsForm"><BR>
+      　防具のステータスを入力して【計算】ボタンを押すと、計算されたダメージ量が上の表に表示されます。　<BR>
+      <BR>
+      　　　防御力：<INPUT size="4" type="text" maxlength="4" tabindex="1" value="1" name="def">　火耐性：<INPUT size="4" type="text" maxlength="4" tabindex="2" value="0" name="hi">　水耐性：<INPUT size="4" type="text" maxlength="4" tabindex="3" value="0" name="mizu">　雷耐性：<INPUT size="4" type="text" maxlength="4" tabindex="4" value="0" name="kami">　龍耐性：<INPUT size="4" type="text" maxlength="4" tabindex="5" value="0" name="ryu"><BR>
+      <BR>
+      　　　飛竜の強さ：<SELECT tabindex="6" name="tsuyo" onChange="SelTsuyo()">
+        <OPTION selected>ノーマルクラス（通常）</OPTION>
+        <OPTION>ノーマルクラス（怒り状態）</OPTION>
+        <OPTION>ハードクラス（通常）</OPTION>
+        <OPTION>ハードクラス（怒り状態）</OPTION>
+        <OPTION>Ｇ級クラス（通常）</OPTION>
+        <OPTION>Ｇ級クラス（怒り状態）</OPTION>
+      </SELECT>　攻撃力倍率：<INPUT size="4" type="text" maxlength="4" tabindex="7" name="bair">％　　　<INPUT type="button" value="　計　算　" tabindex="8" onClick="CalcDamage()"><BR>
+      <BR>
+      　* 同じクラスの飛竜でも個体差により攻撃力倍率が異なるので、攻撃力倍率を適宜修正してください。</FORM>
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P class="hpb-cnt-tb-cell0"><BR>
+計算例：<BR>
+<BR>
+ミラボレアスの攻撃によるダメージを、 プレイヤーの防御値を180、火耐性を20、龍耐性を15と仮定して、計算してみましょう。<BR>
+通常状態なので攻撃力倍率を260％としています。怒り状態では1.4倍ほどになります。<BR>
+<BR>
+火球ブレスの場合<BR>
+　　　200×2.6−（200×2.6×180）÷（180＋80）＝160　（火耐性がない場合は即死）<BR>
+　　　160×80％＝128<BR>
+<BR>
+突進攻撃の場合<BR>
+　　　190×2.6−（190×2.6×180）÷（180＋80）＝152　（龍耐性がない場合は即死）<BR>
+　　　152×85％＝129<BR>
+<BR>
+      体力が130以上あれば、どちらも何とか耐えられるようです。<BR>
+<BR>
+</P>
+2005/04/01<BR>
+<BR>
+<BR>
+<BR>
+</BODY>
+</HTML>

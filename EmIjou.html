@@ -1,0 +1,767 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.2.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>MHG モンスターの状態異常について</TITLE>
+<style type="text/css">
+<!--
+.hpb-cnt-tb1{
+	background-color: #333333;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb2{
+	background-color: #333333;
+	border: 0px solid #333333;
+}
+.hpb-cnt-tb-th1 {
+	background-color: #BBBBBB;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.hpb-cnt-tb-cell1 {
+	background-color: #EEEEEE;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  
+}
+.hpb-cnt-tb-cell2 {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	color: #333333;
+	border-top-width: 0px;
+	border-right-width : 1px;
+	border-bottom-width : 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+  text-align : center;
+}
+.hpb-cnt-tb-cell3 {
+	background-color: #FFFFFF;
+	font-size: 80%;
+	color: #333333;
+	border: 0px solid #333333;
+  margin-top : 0px;
+  margin-left : 0px;
+  margin-right : 0px;
+  margin-bottom : 0px;
+}
+-->
+</style>
+</HEAD>
+
+<H3>モンスターの状態異常について</H3>
+ここでは、モンスターの状態異常（毒・麻痺・睡眠）および麻酔状態について調査結果を掲載しています。<BR>
+<BR>
+<BR>
+●毒状態<BR>
+<BR>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_050316192821" class="hpb-cnt-tb1">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" width="100">モンスター名</TH>
+      <TH class="hpb-cnt-tb-th1" width="200">耐性値の上昇</TH>
+      <TH class="hpb-cnt-tb-th1" width="80">継続時間</TH>
+      <TH class="hpb-cnt-tb-th1" width="80">体力減少<BR>
+      （5秒毎）</TH>
+      <TH class="hpb-cnt-tb-th1" width="80">蓄積値減少<BR>
+      （5秒毎）</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2">100→150→200→250→300</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスガレオス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→150→200→250→300</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→175→250→325→400</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">110→185→260→335→410</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">110→185→260→335→410</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">バサルモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→225→300→375→450</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→175→250→325→400</TD>
+      <TD class="hpb-cnt-tb-cell2">120秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">120秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">キリン</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ラオシャンロン</TD>
+      <TD class="hpb-cnt-tb-cell2">毒無効</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ミラボレアス</TD>
+      <TD class="hpb-cnt-tb-cell2">400→450→500→550→600</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">青イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2">100→150→200→250→300</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">紫ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2">300→375→450→525→600</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">桜リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">30</TD>
+      <TD class="hpb-cnt-tb-cell2">15</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">蒼リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">215→290→365→440→515</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">30</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">金リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">350→450→550→650→750</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">30</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">銀リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">400→500→600→700→800</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">35</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">翠ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→200→300→400→500</TD>
+      <TD class="hpb-cnt-tb-cell2">90秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">赤フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">110→185→260→335→410</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">40</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">250→300→350→400→450</TD>
+      <TD class="hpb-cnt-tb-cell2">90秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">白モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→200→300→400→500</TD>
+      <TD class="hpb-cnt-tb-cell2">90秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20</TD>
+      <TD class="hpb-cnt-tb-cell2">10</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<P class="hpb-cnt-tb-cell3">Monster Hunter Gでは、前作のように、毒状態中のモンスターに毒攻撃を行って毒状態を維持するということができなくなりました。<BR>
+上の表の<B>継続時間</B>で示した時間が経過すると、必ず毒状態が解除されます。<BR>
+<BR>
+だからといって、毒状態中に毒攻撃を行うことはムダではありません。モンスターが毒状態になった時、蓄積値は０にリセットされますが、<BR>
+毒攻撃を行えば、再び蓄積値に加算されていきます。そして、毒状態中は蓄積値が減少することはありません。<BR>
+（通常は上の表で示すとおり、一定時間毎に蓄積値が減少していきます）<BR>
+しかし、すでに毒状態なので、蓄積値が現在の耐性値以上になることはなく、いくら毒攻撃をしてもそれ以上蓄積はされません。<BR>
+<BR>
+例えば、初期状態（耐性値＝110）のリオレウスを毒化したとして、毒状態中に毒攻撃を行っても蓄積量は109止まりです。<BR>
+そして、毒状態が解除された瞬間、蓄積量が1段階下がり（109−10＝99）、以後は５秒毎に10減少していきます。<BR>
+毒状態が終了すると耐性値が1段階上昇するので、185になります。よって、再び毒状態に陥れるためには、<BR>
+86以上の蓄積が必要ということになります。<BR>
+<BR>
+蓄積値を減少させるためのカウンターは、毒攻撃の都度、再びカウントし直されます。つまり、カウント終了前に毒攻撃を行うことを<BR>
+続ければ、蓄積値を全く減少させずに毒化することも可能です。<BR>
+<BR>
+蓄積値は、モンスターがエリア移動を行ってもリセットされることはありません。<BR>
+<BR>
+毒の蓄積はプレイヤーの毒攻撃だけではなく、イーオスなど他のモンスターの毒攻撃によって蓄積されることもあります。<BR>
+その量はわずかですが、蓄積値減少カウンターは再カウントを始めるので、蓄積値が減少しにくくなると言えます。<BR>
+<BR>
+<BR>
+耐性値が上昇する回数は、前作では３回でしたが今作では４回です。耐性値上昇幅も前作より大きくなっており、<BR>
+蓄積値の減少する速度も前作の２倍の速さになっています。<BR>
+<BR>
+例：リオレウスの毒耐性値<BR>
+　　　　110→185→260→335→410<BR>
+<BR>
+　　前作のリオレウスの場合<BR>
+　　　　110→160→210→260<BR>
+<BR>
+<BR>
+蓄積量については、LV1毒弾は一発につき25、LV2毒弾は50蓄積されます。ボウガンの弾による蓄積量は、距離や、<BR>
+当たった部位によって変化することはありません。<BR>
+毒属性の武器は、エフェクトが発動したとき、ステータスに表示される属性値の10分の１の量が蓄積されます。<BR>
+毒生肉は、1個あたり200の蓄積量があります。<BR>
+<BR>
+<B>状態異常攻撃強化</B>スキルがある場合、１回の蓄積量が1.125倍になります（小数点以下は切捨て）。例えば、<BR>
+初期状態のリオレウスを毒化するにはLV2毒弾が３発必要ですが、このスキルがあれば２発で毒化できるということになります。<BR>
+<BR>
+モノブロスとディアブロスは、地中に潜ろうとしている時、および地中からの突き上げ動作中は、毒を蓄積させることができません。</P>
+<BR>
+<HR>
+<BR>
+●麻痺状態<BR>
+<BR>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_050316202513" class="hpb-cnt-tb1">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" width="100">モンスター名</TH>
+      <TH class="hpb-cnt-tb-th1" width="200">耐性値の上昇</TH>
+      <TH class="hpb-cnt-tb-th1" width="80">継続時間</TH>
+      <TH class="hpb-cnt-tb-th1" width="120">蓄積値減少</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2">100→165→230→295→360</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→200→250→300→350</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスガレオス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→200→250→300→350</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→175→250→325→400</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">5秒</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">110→185→260→335→410</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→175→250→325→400</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">バサルモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→225→300→375→450</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">キリン</TD>
+      <TD class="hpb-cnt-tb-cell2">麻痺無効</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ラオシャンロン</TD>
+      <TD class="hpb-cnt-tb-cell2">麻痺無効</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ミラボレアス</TD>
+      <TD class="hpb-cnt-tb-cell2">400→450→500→550→600</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">青イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2">100→175→250→325→400</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">紫ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→200→250→300→350</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">桜リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">125→200→275→350→425</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">蒼リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">125→200→275→350→425</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">金リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">銀リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">翠ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→200→300→400→500</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">赤フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">350→425→500→575→650</TD>
+      <TD class="hpb-cnt-tb-cell2">5秒</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒毎に10</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→300→400→500→600</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">250→325→400→475→550</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">白モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→275→350→425→500</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒</TD>
+      <TD class="hpb-cnt-tb-cell2">15秒毎に5</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<P class="hpb-cnt-tb-cell3">麻痺については、基本的に前作とほとんど変わっていません。<BR>
+<BR>
+モンスターが麻痺状態になると蓄積値は０にリセットされますが、毒と異なり、麻痺状態中に麻痺攻撃を行っても蓄積はされません。<BR>
+麻痺解除後は再び０からの蓄積となります。<BR>
+<BR>
+蓄積値を減少させるためのカウンターは、麻痺攻撃の都度、再びカウントし直されます。つまり、カウント終了前に麻痺攻撃を行うことを<BR>
+続ければ、蓄積値を全く減少させずに麻痺化することも可能です。<BR>
+<BR>
+蓄積値は、モンスターがエリア移動を行ってもリセットされることはありません。<BR>
+<BR>
+麻痺の蓄積はプレイヤーの麻痺攻撃だけではなく、ゲネポスなど他のモンスターの麻痺攻撃によって蓄積されることもあります。<BR>
+その量はわずかですが、蓄積値減少カウンターは再カウントを始めるので、蓄積値が減少しにくくなると言えます。<BR>
+<BR>
+<BR>
+耐性値が上昇する回数は、前作では３回でしたが今作では４回です。耐性値上昇幅も前作より大きくなっています。<BR>
+<BR>
+例：リオレイアの麻痺耐性値<BR>
+　　　　110→185→260→335→410<BR>
+<BR>
+　　前作のリオレイアの場合<BR>
+　　　　110→160→210→260<BR>
+<BR>
+<BR>
+蓄積量については、LV1麻痺弾は一発につき25、LV2麻痺弾は50蓄積されます。ボウガンの弾による蓄積量は、距離や、<BR>
+当たった部位によって変化することはありません。<BR>
+麻痺属性の武器は、エフェクトが発動したとき、ステータスに表示される属性値の10分の１の量が蓄積されます。<BR>
+シビレ生肉は、1個あたり200の蓄積量があります。<BR>
+<BR>
+<B>状態異常攻撃強化</B>スキルがある場合、１回の蓄積量が1.125倍になります（小数点以下は切捨て）。例えば、<BR>
+初期状態のリオレイアを麻痺化するにはLV2麻痺弾が３発必要ですが、このスキルがあれば２発で麻痺化できるということになります。<BR>
+<BR>
+モノブロスとディアブロスは、地中に潜ろうとしている時、および地中からの突き上げ動作中は、麻痺を蓄積させることができません。</P>
+<BR>
+<HR>
+<BR>
+●睡眠状態<BR>
+<BR>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_050316202513" class="hpb-cnt-tb1">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" width="100">モンスター名</TH>
+      <TH class="hpb-cnt-tb-th1" width="200">耐性値の上昇</TH>
+      <TH class="hpb-cnt-tb-th1" width="80">継続時間</TH>
+      <TH class="hpb-cnt-tb-th1" width="120">蓄積値減少</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2">110→135→160→185→210</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→175→200→225→250</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ドスガレオス</TD>
+      <TD class="hpb-cnt-tb-cell2">110→135→160→185→210</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→150→200→250→300</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">200→225→250→275→300</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">150→200→250→300→350</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→175→200→225→250</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">バサルモス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→150→200→250→300</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→200→250→300→350</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→175→200→225→250</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">キリン</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">20秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ラオシャンロン</TD>
+      <TD class="hpb-cnt-tb-cell2">睡眠無効</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">ミラボレアス</TD>
+      <TD class="hpb-cnt-tb-cell2">400→450→500→550→600</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">青イャンクック</TD>
+      <TD class="hpb-cnt-tb-cell2">110→135→160→185→210</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">紫ゲリョス</TD>
+      <TD class="hpb-cnt-tb-cell2">100→125→150→175→200</TD>
+      <TD class="hpb-cnt-tb-cell2">50秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">桜リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">150→225→300→375→450</TD>
+      <TD class="hpb-cnt-tb-cell2">30秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">蒼リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→225→250→275→300</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">金リオレイア</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">銀リオレウス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→225→250→275→300</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">翠ガノトトス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">赤フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">200→225→250→275→300</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒グラビモス</TD>
+      <TD class="hpb-cnt-tb-cell2">200→250→300→350→400</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">黒ディアブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→175→200→225→250</TD>
+      <TD class="hpb-cnt-tb-cell2">50秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">白モノブロス</TD>
+      <TD class="hpb-cnt-tb-cell2">150→200→250→300→350</TD>
+      <TD class="hpb-cnt-tb-cell2">40秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<P class="hpb-cnt-tb-cell3">睡眠についても、基本的に前作とほとんど変わっていません。<BR>
+<BR>
+蓄積値を減少させるためのカウンターは、睡眠攻撃の都度、再びカウントし直されます。つまり、カウント終了前に睡眠攻撃を行うことを<BR>
+続ければ、蓄積値を全く減少させずに眠らせることも可能です。<BR>
+<BR>
+蓄積値は、モンスターがエリア移動を行ってもリセットされることはありません。<BR>
+<BR>
+耐性値が上昇する回数は、前作では３回でしたが今作では４回です。<BR>
+<BR>
+蓄積量については、LV1睡眠弾は一発につき25、LV2睡眠弾は50蓄積されます。ボウガンの弾による蓄積量は、距離や、<BR>
+当たった部位によって変化することはありません。<BR>
+睡眠属性の武器は、エフェクトが発動したとき、ステータスに表示される属性値の10分の１の量が蓄積されます。<BR>
+眠り生肉は、1個あたり200の蓄積量があります。<BR>
+<BR>
+<B>状態異常攻撃強化</B>スキルがある場合、１回の蓄積量が1.125倍になります（小数点以下は切捨て）。例えば、<BR>
+初期状態のイャンクックを眠らせるにはLV2睡眠弾が３発必要ですが、このスキルがあれば２発で眠らせられるということになります。<BR>
+<BR>
+モノブロスとディアブロスは、地中に潜ろうとしている時、および地中からの突き上げ動作中は、睡眠を蓄積させることができません。</P>
+<BR>
+<HR>
+<BR>
+●麻酔状態<BR>
+<BR>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_050316202513" class="hpb-cnt-tb1">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" width="100">モンスター名</TH>
+      <TH class="hpb-cnt-tb-th1" width="200">耐性値</TH>
+      <TH class="hpb-cnt-tb-th1" width="80">継続時間</TH>
+      <TH class="hpb-cnt-tb-th1" width="120">蓄積値減少</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">イャンクック<BR>ゲリョス<BR>
+ガノトトス<BR>
+フルフル<BR>
+リオレイア<BR>
+リオレウス<BR>
+青イャンクック<BR>
+紫ゲリョス<BR>
+桜リオレイア<BR>
+蒼リオレウス<BR>
+金リオレイア<BR>
+銀リオレウス<BR>
+翠ガノトトス<BR>
+赤フルフル</TD>
+      <TD class="hpb-cnt-tb-cell2">100（耐性値の上昇なし）</TD>
+      <TD class="hpb-cnt-tb-cell2">60秒</TD>
+      <TD class="hpb-cnt-tb-cell2">10秒毎に5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">上記以外</TD>
+      <TD class="hpb-cnt-tb-cell2">麻酔無効</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+      <TD class="hpb-cnt-tb-cell2">-</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<P class="hpb-cnt-tb-cell3">麻酔状態とは、捕獲クエストで支給される捕獲用麻酔玉（弾）によって眠らせた状態のことです。<BR>
+捕獲用麻酔玉（弾）1個あたりの蓄積量は80です。従って、通常は２個で眠らせることができます。<BR>
+<BR>
+他と同様、蓄積値は時間の経過と共に減少するので、１個目からあまり時間をあけると２個で眠らせられない場合があります。<BR>
+<BR>
+蓄積値は、モンスターがエリア移動を行ってもリセットされることはありません。</P>
+<BR>
+<BR>
+2005/04/01<BR>
+2005/03/16<BR>
+<BR>
+<BR>
+</BODY>
+</HTML>
