@@ -1,4 +1,4 @@
-spow = new Array(6);
+﻿spow = new Array(6);
 spow[0] = 130;
 spow[1] = 182;
 spow[2] = 180;
